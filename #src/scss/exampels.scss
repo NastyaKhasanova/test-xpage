@@ -1,0 +1,103 @@
+/*exampels-slider*/
+.exampels-block::before {
+    content: '';
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    width: 8%;
+    height: 100%;
+    bottom: -10%;
+    background: url('../img/bg2.svg') no-repeat left bottom;
+    background-size: contain;
+}
+
+.exampels-block .container {
+    position: relative;
+    z-index: 1;
+}
+
+.exampels-item {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 100%;
+}
+
+.exampels-item img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.exampels-slider {
+    position: relative;
+
+    .swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 55px;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: 0;
+    }
+
+    .swiper-button-prev {
+        left: -60px;
+        width: 10px;
+        height: 20px;
+        background: url('../img/prev.svg') no-repeat center;
+        background-size: contain;
+        opacity: 0.4;
+        transition: opacity 0.3s linear;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            opacity: 1;
+        }
+    }
+
+    .swiper-button-next {
+        right: -60px;
+        width: 10px;
+        height: 20px;
+        background: url('../img/next.svg') no-repeat center;
+        background-size: contain;
+        opacity: 0.4;
+        transition: opacity 0.3s linear;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            opacity: 1;
+        }
+    }
+
+    .swiper-button-next:after, 
+    .swiper-button-prev:after {
+        display: none;
+    }
+
+    .swiper-pagination-bullet {
+        background: $main-color;
+    }
+}
+
+
+@media screen and (max-width: 1360px) {
+    .exampels-slider .swiper-button-next, 
+    .exampels-slider .swiper-button-prev {
+        display: none;
+    }
+
+    .exampels-slider .swiper-container {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+}

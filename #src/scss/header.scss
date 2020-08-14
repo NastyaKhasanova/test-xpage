@@ -1,0 +1,247 @@
+/*header*/
+.header-content {
+    padding: 60px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+
+    @media screen and (max-width: 1280px ) {
+        font-size: 12px;
+    }
+}
+
+.header-content .logo {
+    margin-right: 60px;
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+.main-menu {
+    list-style: none;
+    display: flex;
+    margin-left: -20px;
+    margin-right: -20px;
+
+    @media screen and (max-width: 1280px ) {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    li {
+        padding: 0 20px;
+
+        @media screen and (max-width: 1280px ) {
+           padding: 0 15px;
+        }
+
+        a {
+            display: inline-block;
+            font-weight: 600;
+            transition: color 0.3s linear;
+
+            &:hover,
+            &:focus {
+                color: $main-color;
+            }
+        }
+    }
+}
+
+.header-contacts {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    .contacts-item {
+        margin-left: 30px;
+    }
+}
+
+/* mobile-menu */
+.navbar-toggle {
+	position: relative;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 10000;
+	width: 24px;
+    height: 24px;
+    margin-left: 20px;
+}
+
+.navbar-toggle span {
+	position: relative;
+	display: inline-block;
+	width: 24px;
+	height: 2px;
+	vertical-align: bottom;
+	background: $main-color;
+	transition: background 0.3s linear;
+}
+
+.navbar-toggle span:before {
+	transform: none;
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 8px;
+	width: 24px;
+	height: 2px;
+	background: $main-color;
+	transform-origin: 50% 50%;
+	transition: top .3s .3s ease, transform .3s ease, width .3s ease;
+}
+
+.navbar-toggle span:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: -8px;
+	width: 24px;
+	height: 2px;
+	background: $main-color;
+	transform-origin: 50% 50%;
+	transition: top .3s .3s ease, transform .3s ease, width .3s ease;
+}
+
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: $main-color;
+	transform: translate3d(-100%, 0, 0);
+	z-index: 10000;
+	transition: transform .5s ease;
+	overflow-x: hidden;
+    max-width: 375px;
+    padding: 20px;
+
+    .main-menu {
+        flex-direction: column;
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        li a {
+            padding: 10px 15px;
+            color: #fff;
+            transition: opacity 0.3s linear;
+
+            &:hover,
+            &:focus {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.mobile-menu .navbar-toggle {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+    display: none;
+}
+
+.mobile-menu .navbar-collapse {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.burger-open .navbar-toggle > span {
+	background: 0 0;
+}
+
+.burger-open .navbar-toggle > span:before {
+	transform: rotate3d(0, 0, 1, 45deg);
+	top: 0;
+	transition: top .3s,transform .3s .5s;
+	background: #fff;
+}
+
+.burger-open .navbar-toggle > span:after {
+	transform: rotate3d(0, 0, 1, -45deg);
+	top: 0;
+	transition: top .3s,transform .3s .5s;
+	background: #fff;
+}
+
+.burger-open .mobile-menu {
+	transform: translate3d(0, 0, 0);
+}
+
+body.burger-open::before {
+	opacity: 1;
+	visibility: visible;
+}
+
+body::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	z-index: 400;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.5s ease;
+}
+
+@media screen and (max-width: 960px) {
+	.navbar-toggle {
+		display: flex;
+	}
+}
+
+@media screen and (max-width: 640px ) {
+    .mobile-menu .navbar-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        max-width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1280px ) {
+    .header-content {
+        padding: 30px 0;
+    }
+}
+
+@media screen and (max-width: 960px ) {
+   .header-content {
+        padding: 20px 0;
+
+        .navbar-collapse {
+            display: none;
+        }
+
+        .logo {
+            margin-right: 20px;
+        }
+    }
+
+    .header-contacts .contacts-item {
+        margin-left: 20px;
+    }
+
+}
+
+@media screen and (max-width: 480px ) {
+   .header-contacts .btn {
+       display: none;
+   }
+}
+

@@ -1,0 +1,147 @@
+/* compare */
+.compare-block::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+    display: block;
+    background: url('../img/bg3.svg') no-repeat right top;
+    background-size: contain;
+}
+
+.compare-block .container {
+    position: relative;
+    z-index: 1;
+}
+
+.compare-item {
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #E1E1E1;
+    }
+
+    &:not(:first-child) .compare-title {
+        display: none;
+    }
+
+    &:first-child .compare-img {
+        margin-top: 70px;
+    }
+
+}
+
+.compare-item-col {
+    width: 33.3%;
+
+    &.center {
+        align-self: center;
+        padding: 0 20px;
+    }
+}
+
+.compare-img {
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.compare-text {
+    font-size: 0.875em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.compare-title {
+    position: relative;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 70px;
+    padding-left: 35px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: url('../img/li-bg.svg') no-repeat center;
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .compare-item {
+        font-size: 0.875rem;;
+    }
+
+    .compare-title {
+        font-size: 1rem;
+        margin-bottom: 40px;
+        padding-left: 30px;
+
+        &::before {
+            width: 15px;
+            height: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .compare-item-col {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+
+        &.center {
+            order: -1;
+        }
+    }
+
+    .compare-title {
+        margin-bottom: 15px;
+    }
+
+    .compare-item:not(:first-child) .compare-title {
+        display: block;
+    }
+
+    .compare-item:first-child .compare-img {
+        margin-top: 0;
+    }
+
+    .compare-item {
+        padding: 40px 0;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    .compare-block::before {
+        top: 0;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+  .compare-item-col {
+      padding-left: 0;
+      padding-right: 0;
+  }
+}
